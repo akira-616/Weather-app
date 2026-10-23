@@ -1,0 +1,23 @@
+body {
+    font-family: 'Inter', sans-serif;
+    /* Dynamic background that looks clean and modern */
+    background: linear-gradient(135deg, #74EBD5 0%, #9FACE6 100%);
+}
+
+/* Smooth transition for displaying the weather card */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Glassmorphism styling for the card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}

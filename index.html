@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Weather App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for standard icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 text-gray-800">
+
+    <main class="glass-card rounded-3xl p-6 w-full max-w-md shadow-2xl transition-all duration-300">
+
+        <!-- Search Bar Section -->
+        <div class="relative flex items-center mb-6">
+            <input type="text" id="city-input"
+                class="w-full bg-white/60 border border-white/40 focus:bg-white/90 text-gray-800 text-lg rounded-full py-3 pl-5 pr-12 outline-none transition-all placeholder-gray-500 shadow-inner focus:shadow-md"
+                placeholder="Enter city name..." autocomplete="off">
+            <button id="search-btn" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white p-2.5 rounded-full transition-colors shadow-md">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <!-- Status/Error Message Container -->
+        <div id="status-message" class="text-center text-sm font-medium mb-4 text-red-600 hidden"></div>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="hidden flex-col items-center justify-center py-10">
+            <i class="fas fa-circle-notch fa-spin text-4xl text-blue-600 mb-3"></i>
+            <p class="text-gray-700 font-medium">Fetching weather...</p>
+        </div>
+
+        <!-- Weather Display Container (Hidden by default) -->
+        <div id="weather-display" class="hidden flex-col items-center fade-in">
+            <!-- Location Name -->
+            <h2 id="location-name" class="text-3xl font-bold text-gray-800 mb-1 text-center leading-tight">London, UK</h2>
+
+            <!-- Weather Icon (Emoji/Text based on WMO code) -->
+            <div id="weather-icon" class="text-7xl my-4 drop-shadow-md">
+                🌤️
+            </div>
+
+            <!-- Main Temperature -->
+            <div class="flex items-start justify-center text-gray-900 mb-2">
+                <span id="temperature" class="text-6xl font-bold tracking-tighter">22</span>
+                <span class="text-2xl font-semibold mt-1">°C</span>
+            </div>
+
+            <!-- Weather Condition Description -->
+            <p id="weather-desc" class="text-xl font-medium text-gray-700 capitalize mb-8">Partly Cloudy</p>
+
+            <!-- Detailed Stats Grid -->
+            <div class="w-full grid grid-cols-2 gap-4">
+                <!-- Humidity -->
+                <div class="bg-white/40 rounded-2xl p-4 flex items-center shadow-sm">
+                    <i class="fas fa-water text-blue-500 text-2xl mr-3"></i>
+                    <div>
+                        <p class="text-xs text-gray-600 uppercase font-semibold">Humidity</p>
+                        <p class="text-lg font-bold text-gray-800"><span id="humidity">45</span>%</p>
+                    </div>
+                </div>
+
+                <!-- Wind Speed -->
+                <div class="bg-white/40 rounded-2xl p-4 flex items-center shadow-sm">
+                    <i class="fas fa-wind text-gray-500 text-2xl mr-3"></i>
+                    <div>
+                        <p class="text-xs text-gray-600 uppercase font-semibold">Wind Speed</p>
+                        <p class="text-lg font-bold text-gray-800"><span id="wind-speed">12</span> km/h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
